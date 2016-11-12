@@ -5,13 +5,13 @@ use strict;
 use warnings;
 use CGI;
 
-require("mylib.pl");
+require("grid.pm");
 
-begin_html("Grid");
+Grid::begin_html("Grid");
 print<<EOT;
 <body>
   <header>
-    <h1>Grid 0.1.0</h1>
+    <h1>Grid $Grid::version</h1>
     <p>A simple forum application.</p>
   </header>
   <nav>
