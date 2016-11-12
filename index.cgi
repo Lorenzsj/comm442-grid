@@ -1,12 +1,13 @@
 #!/usr/bin/perl
+#index 
 
 use strict;
+use warnings;
 use CGI;
 
-require("mylib.pl");
+begin_html("Grid");
 
-begin_html("Home");
-print<<EOT;
+print <<EOT;
 <body>
   <script src="js/scripts.js"></script>
 </body>
