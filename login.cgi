@@ -4,7 +4,7 @@ use strict;
 use warnings;
 use CGI;
 
-require("grid.pl");
+require("grid.pm");
 
 my $query = CGI->new;
 
