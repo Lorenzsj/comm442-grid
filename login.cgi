@@ -11,8 +11,8 @@ my $query = CGI->new;
 my $username = $query->param('username');
 my $password = $query->param('password');
 
-my $message #debug variable
-if ($username =~ /stephen/ and $password =~ /lorenz/) {$message = "Welcome " . $username;}
+my $message; #debug variable
+if ($username =~ /stephen/ and $password =~ /lorenz/) {$message = "Welcome $username";}
 
 begin_html("Login");
 print<<EOT;
@@ -29,6 +29,12 @@ print<<EOT;
       <li><a href="signup.cgi">Sign up</a></li>
     </ul>
   </nav>
+  <form method="POST" action="login.cgi">
+    <input type="text" name="username" required>
+    <input type="text" name="password" required>
+    <input type="submit">
+  </form>
+  $message
   <script src="js/scripts.js"></script>
 </body>
 </html>
