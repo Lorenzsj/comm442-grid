@@ -5,12 +5,14 @@ use strict;
 use warnings;
 use DBI;
 use Time::Piece;
-
-# MySQL database configuration
-
+use FindBin;
+use lib "/home/stevie/perl5/lib/perl5/";
+use CGI;
+use CGI::Session;
+use CGI::Session::Auth;
 
 # Global variables
-our $version = "0.1.0";
+our $version = "0.2.1";
 
 # Package variables
 my $dbh;
@@ -25,7 +27,6 @@ my $dbh;
 # @params $style String. Path to a  .css file tag.
 # @params $script String. Path to a .js file.
 #*.
-
 sub begin_html {
     my $title  = $_[0];
     my $about  = $_[1] // "Grid $version";
@@ -93,6 +94,11 @@ sub generate_header {
 EOT
 }
 
+#** @function public connect_database()
+# @brief Open a connection to the MySQl database.
+#
+# Under construction. Connect to the MySQL database as root.
+#*.
 sub connect_database {
   my $dsn = "DBI:mysql:grid";
   my $username = "root";
@@ -102,6 +108,11 @@ sub connect_database {
   my $dbh  = DBI->connect($dsn, $username, $password, \%attr);
 }
 
+#** @function public connect_database()
+# @brief Closes a connection to the MySQl database.
+#
+# Under construction. Disconnect from the MySQL database.
+#*.
 sub disconnect_databse {
   $dbh->disconnect();
 }
