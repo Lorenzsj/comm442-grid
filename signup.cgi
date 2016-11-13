@@ -12,15 +12,14 @@ my $username = $query->param('username');
 my $password = $query->param('password');
 
 my $message; #debug variable
-if ($username =~ /stephen/ and $password =~ /lorenz/) {$message = "Welcome $username";}
+if ($username =~ /stephen/ and $password =~ /lorenz/) {
+  $message = "Welcome $username";
+}
 
-Grid::begin_html("Login");
+Grid::begin_html("Sign up");
 print<<EOT;
 <body>
-  <header>
-    <h1>Grid $Grid::version</h1>
-    <p>A simple forum application.</p>
-  </header>
+  @{[Grid::generate_header()]}
   <nav>
     <ul>
       <li><a href="index.cgi">Home</a></li>
@@ -37,5 +36,5 @@ print<<EOT;
   $message
   <script src="js/scripts.js"></script>
 </body>
-</html>
 EOT
+Grid::end_html();

@@ -6,13 +6,10 @@ use CGI;
 
 require("grid.pm");
 
-Grid::begin_html("Grid");
+Grid::begin_html("Post");
 print<<EOT;
 <body>
-  <header>
-    <h1>Grid $Grid::version</h1>
-    <p>A simple forum application.</p>
-  </header>
+  @{[Grid::generate_header()]}
   <nav>
     <ul>
       <li><a href="index.cgi">Home</a></li>
@@ -23,5 +20,5 @@ print<<EOT;
   </nav>
   <script src="js/scripts.js"></script>
 </body>
-</html>
 EOT
+Grid::end_html();

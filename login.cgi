@@ -17,10 +17,7 @@ if ($username =~ /stephen/ and $password =~ /lorenz/) {$message = "Welcome $user
 Grid::begin_html("Login");
 print<<EOT;
 <body>
-  <header>
-    <h1>Grid $Grid::version</h1>
-    <p>A simple forum application.</p>
-  </header>
+  @{[Grid::generate_header()]}
   <nav>
     <ul>
       <li><a href="index.cgi">Home</a></li>
@@ -37,5 +34,5 @@ print<<EOT;
   $message
   <script src="js/scripts.js"></script>
 </body>
-</html>
 EOT
+Grid::end_html();
