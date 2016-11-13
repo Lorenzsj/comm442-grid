@@ -1,16 +1,13 @@
 #!/usr/bin/perl
-#index.cgi
 
 use strict;
 use warnings;
-use CGI;
+use lib "/home/stevie/perl5/lib/perl5/";
+use Grid::HTML5;
 
-require("grid.pm");
-
-Grid::begin_html("Grid");
+Grid::HTML5::begin_html("Grid");
+Grid::HTML5::generate_header();
 print <<EOT;
-<body>
-  @{[Grid::generate_header()]}
   <nav>
     <ul>
       <li><a href="index.cgi">Home</a></li>
@@ -19,7 +16,6 @@ print <<EOT;
       <li><a href="signup.cgi">Sign up</a></li>
     </ul>
   </nav>
-  <script src="js/scripts.js"></script>
-</body>
 EOT
-Grid::end_html();
+Grid::HTML5::generate_footer();
+Grid::HTML5::end_html();

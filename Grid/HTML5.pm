@@ -1,21 +1,9 @@
 #!/usr/bin/perl
-package Grid;
+package Grid::HTML5;
 
 use strict;
 use warnings;
-use DBI;
-use Time::Piece;
-use FindBin;
-use lib "/home/stevie/perl5/lib/perl5/";
-use CGI;
-use CGI::Session;
-use CGI::Session::Auth;
-
-# Global variables
-our $version = "0.2.1";
-
-# Package variables
-my $dbh;
+use Grid::Base;
 
 #** @function public begin_html($title, $about, $author, $style, $script)
 # @brief Print the HTML5 <head>.
@@ -29,9 +17,9 @@ my $dbh;
 #*.
 sub begin_html {
     my $title  = $_[0];
-    my $about  = $_[1] // "Grid $version";
+    my $about  = $_[1] // "Grid " . $Grid::Base::get_version;
     my $author = $_[2] // "Stephen Lorenz";
-    my $style  = $_[3] // "css/styles.css?v=1.0";
+    my $style  = $_[3] // "css/styles.css";
     my $script = $_[4] // "js/scripts.js";
 
     print <<EOT;
@@ -52,27 +40,18 @@ Content-type: text/html
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
 <![endif]-->
 </head>
+<body>
 EOT
 }
 
 #** @function public end_html()
-# @brief Print the HTML <footer>.
+# @brief Close tags opened by begin_html;
 #
-# Under construction. Used to dynamically generate HTML5 footers.
+# Under construction. Used to ensure that all tags have been properly closed.
 #*.
 sub end_html {
-    my $year = localtime()->year;
-
-    print <<EOT;
-    <footer>
-      <p>In development. $year</p>
-      <nav>
-        <ul>
-          <li><a href="about.cgi">About</a></li>
-          <li><a href="contact.cgi">Contact</a></li>
-        </ul>
-      </nav>
-    </footer>
+print <<EOT;
+</body>
 </html>
 EOT
 }
@@ -83,7 +62,7 @@ EOT
 # Under construction.Used to dynamically generate HTML5 headers.
 #*.
 sub generate_header {
-  my $title = $_[0] // "Grid $version";
+  my $title = $_[0] // "Grid " . Grid::Base::get_version();
   my $about = $_[1] // "A simple forum application.";
 
   print <<EOT;
@@ -94,27 +73,19 @@ sub generate_header {
 EOT
 }
 
-#** @function public connect_database()
-# @brief Open a connection to the MySQl database.
-#
-# Under construction. Connect to the MySQL database as root.
-#*.
-sub connect_database {
-  my $dsn = "DBI:mysql:grid";
-  my $username = "root";
-  my $password = '';
-
-  my %attr = (PrintError=>0, RaiseError=>1);
-  my $dbh  = DBI->connect($dsn, $username, $password, \%attr);
+sub generate_footer {
+  my $year = Grid::Base::localtime()->year;
+  print <<EOT;
+<footer>
+  <p>In development. $year</p>
+  <nav>
+    <ul>
+      <li><a href="about.cgi">About</a></li>
+      <li><a href="contact.cgi">Contact</a></li>
+    </ul>
+  </nav>
+</footer>
+EOT
 }
 
-#** @function public connect_database()
-# @brief Closes a connection to the MySQl database.
-#
-# Under construction. Disconnect from the MySQL database.
-#*.
-sub disconnect_databse {
-  $dbh->disconnect();
-}
-
-1
+1;
