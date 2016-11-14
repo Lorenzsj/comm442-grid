@@ -1,6 +1,8 @@
 #!/usr/bin/perl
 package Grid::Network;
 
+#Description: Store user in Database and grant user a session
+
 use lib "/home/stevie/perl5/lib/perl5/";
 use strict;
 use warnings;
@@ -38,7 +40,7 @@ sub sign_in {
   my $username = $_[0] // "";
   my $password = $_[1] // "";
 
-  print l_name;
+  #print l_name;
 
   #Grid::Database::connect_database();
 
@@ -58,7 +60,7 @@ sub sign_in {
   }
   else {
     #print redirect(-url=>'Location: signup.cgi');
-    return "Username does not exist.";
+    return "Account does not exist. <a href=\"signup.cgi\">Create it</a>.";
   }
 }
 

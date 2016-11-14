@@ -4,8 +4,6 @@ package Grid::HTML5;
 use strict;
 use warnings;
 use Grid::Base;
-use CGI;
-use CGI::Session;
 
 #** @function public begin_html($title, $about, $author, $style, $script)
 # @brief Print the HTML5 <head>.
@@ -91,6 +89,7 @@ sub generate_footer {
   <nav>
     <ul>
       <li><a href="about.cgi">About</a></li>
+      <li><a href="https://github.com/lorenzsj/grid">GitHub</a></li>
       <li><a href="contact.cgi">Contact</a></li>
     </ul>
   </nav>
