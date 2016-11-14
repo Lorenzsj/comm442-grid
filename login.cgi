@@ -4,6 +4,7 @@ use strict;
 use warnings;
 use lib "/home/stevie/perl5/lib/perl5/";
 use Grid::HTML5;
+use Grid::Network;
 use CGI;
 
 my $query = CGI->new;
@@ -11,8 +12,10 @@ my $query = CGI->new;
 my $username = $query->param('username');
 my $password = $query->param('password');
 
+
 Grid::HTML5::begin_html("Grid");
 Grid::HTML5::generate_header();
+Grid::Network::sign_in($username, $password);
 print <<EOT;
   <nav>
     <ul>

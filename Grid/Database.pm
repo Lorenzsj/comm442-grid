@@ -8,6 +8,8 @@ use DBI;
 
 # Package variables
 my $dbh;
+my $username = "stephen";
+my $password = "lorenz";
 
 #** @function public connect_database()
 # @brief Open a connection to the MySQl database.
@@ -31,5 +33,14 @@ sub connect_database {
 sub disconnect_databse {
   $dbh->disconnect();
 }
+
+sub get_username {
+  return $username;
+}
+
+sub get_password {
+  return $password;
+}
+
 
 1;
