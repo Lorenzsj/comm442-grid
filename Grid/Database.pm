@@ -42,5 +42,8 @@ sub get_password {
   return $password;
 }
 
+sub get_dbh {
+  return $dbh;
+}
 
 1;

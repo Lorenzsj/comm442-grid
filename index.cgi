@@ -7,6 +7,7 @@ use Grid::HTML5;
 
 Grid::HTML5::begin_html("Grid");
 Grid::HTML5::generate_header();
+print "<h2>Home</h2>";
 print <<EOT;
   <nav>
     <ul>

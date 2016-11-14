@@ -14,7 +14,6 @@ my $password = $query->param('password');
 
 my $query_network = Grid::Network::sign_in($username, $password);
 
-
 Grid::HTML5::begin_html("Grid");
 Grid::HTML5::generate_header();
 print "<h2>Sign in</h2>";

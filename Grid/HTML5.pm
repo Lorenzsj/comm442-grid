@@ -4,6 +4,8 @@ package Grid::HTML5;
 use strict;
 use warnings;
 use Grid::Base;
+use CGI;
+use CGI::Session;
 
 #** @function public begin_html($title, $about, $author, $style, $script)
 # @brief Print the HTML5 <head>.
@@ -17,13 +19,13 @@ use Grid::Base;
 #*.
 sub begin_html {
     my $title  = $_[0];
-    my $about  = $_[1] // "Grid " . $Grid::Base::get_version;
+    my $about  = $_[1] // "Grid " . Grid::Base::get_version;
     my $author = $_[2] // "Stephen Lorenz";
     my $style  = $_[3] // "css/styles.css";
     my $script = $_[4] // "js/scripts.js";
 
     print <<EOT;
-Content-type: text/html
+content-type: text/html
 
 <!doctype html>
 <html lang="en">
@@ -50,7 +52,7 @@ EOT
 # Under construction. Used to ensure that all tags have been properly closed.
 #*.
 sub end_html {
-print <<EOT;
+  print <<EOT;
 </body>
 </html>
 EOT
@@ -62,7 +64,7 @@ EOT
 # Under construction.Used to dynamically generate HTML5 headers.
 #*.
 sub generate_header {
-  my $title = $_[0] // "Grid " . Grid::Base::get_version();
+  my $title = $_[0] // "Grid " . Grid::Base::get_version;
   my $about = $_[1] // "A simple forum application.";
 
   print <<EOT;
