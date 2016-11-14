@@ -12,11 +12,14 @@ my $query = CGI->new;
 my $username = $query->param('username');
 my $password = $query->param('password');
 
+my $query_network = Grid::Network::sign_in($username, $password);
+
 
 Grid::HTML5::begin_html("Grid");
 Grid::HTML5::generate_header();
-Grid::Network::sign_in($username, $password);
+print "<h2>Sign in</h2>";
 print <<EOT;
+  $query_network
   <nav>
     <ul>
       <li><a href="index.cgi">Home</a></li>
