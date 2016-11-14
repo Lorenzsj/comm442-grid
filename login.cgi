@@ -19,13 +19,6 @@ Grid::HTML5::generate_header();
 print "<h2>Sign in</h2>";
 print <<EOT;
   $query_network
-  <nav>
-    <ul>
-      <li><a href="index.cgi">Home</a></li>
-      <li><a href="post.cgi">Post</a></li>
-      <li><a href="login.cgi">Login</a></li>
-      <li><a href="signup.cgi">Sign up</a></li>
-    </ul>
   </nav>
   <form method="POST" action="login.cgi">
     <input type="text" name="username" required>

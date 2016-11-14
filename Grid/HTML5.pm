@@ -72,6 +72,14 @@ sub generate_header {
     <h1>$title</h1>
     <p>$about</p>
   </header>
+  <nav>
+    <ul>
+      <li><a href="index.cgi">Home</a></li>
+      <li><a href="post.cgi">Post</a></li>
+      <li><a href="login.cgi">Login</a></li>
+      <li><a href="signup.cgi">Sign up</a></li>
+    </ul>
+  </nav>
 EOT
 }
 

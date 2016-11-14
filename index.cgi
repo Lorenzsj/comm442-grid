@@ -9,14 +9,7 @@ Grid::HTML5::begin_html("Grid");
 Grid::HTML5::generate_header();
 print "<h2>Home</h2>";
 print <<EOT;
-  <nav>
-    <ul>
-      <li><a href="index.cgi">Home</a></li>
-      <li><a href="post.cgi">Post</a></li>
-      <li><a href="login.cgi">Login</a></li>
-      <li><a href="signup.cgi">Sign up</a></li>
-    </ul>
-  </nav>
+  <p>Under construction</p>
 EOT
 Grid::HTML5::generate_footer();
 Grid::HTML5::end_html();

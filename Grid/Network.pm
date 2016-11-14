@@ -7,21 +7,17 @@ use warnings;
 use Grid::Database;
 use CGI;
 use CGI::Session;
-#se CGI::Session::Auth;
+#use CGI::Session::Auth;
 
 #my $query = CGI->new();
 
-#y $session = CGI::Session("driver:MySQL", undef, {Handle=>$dbh}->new);
+#my $session = CGI::Session("driver:MySQL", undef, {Handle=>$dbh}->new);
 #my $sid = $session->id();
 
 #my $cookie = $query->cookie(CGISESSI=>$session->id);
 #print $query->header(-cookie=>$cookie);
 
 # Send proper HTTP header with cookies:
-
-# Storing data in the session:
-# or
-#
 
 # Flush the data from memory to the storage driver at least before your
 # program finishes since auto-flushing can be unreliable.
@@ -36,9 +32,6 @@ use CGI::Session;
 
 # Expire '_is_logged_in' flag after 10 idle minutes:
 #$session->expire('is_logged_in', '+10m')
-
-# Expire the session itself after 1 idle hour:
-
 
 sub sign_in {
   #my $l_name = $session->param(-name=>'username');
