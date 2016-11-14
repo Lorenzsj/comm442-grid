@@ -3,7 +3,8 @@ package Grid::Database;
 
 use strict;
 use warnings;
-use lib "/home/stevie/perl5/lib/perl5/";
+use FindBin;
+use lib "$FindBin::Bin/lib/", "FindBin::Bin/local/lib/perl5";
 use DBI;
 
 # Package variables

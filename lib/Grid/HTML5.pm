@@ -3,6 +3,8 @@ package Grid::HTML5;
 
 use strict;
 use warnings;
+use FindBin;
+use lib "$FindBin::Bin/lib/", "FindBin::Bin/local/lib/perl5";
 use Grid::Base;
 
 #** @function public begin_html($title, $about, $author, $style, $script)

@@ -2,7 +2,9 @@
 
 use strict;
 use warnings;
-use lib "/home/stevie/perl5/lib/perl5/";
+use FindBin;
+use lib "$FindBin::Bin/lib/";
+use lib "$FindBin::Bin/local/lib/perl5";
 use Grid::HTML5;
 use Grid::Network;
 use CGI;

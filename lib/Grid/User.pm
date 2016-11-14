@@ -3,9 +3,10 @@
 
 package Grid::User;
 
-use lib "/home/stevie/perl5/lib/perl5/";
 use strict;
 use warnings;
+use FindBin;
+use lib "$FindBin::Bin/lib/", "FindBin::Bin/local/lib/perl5";
 
 sub post {
 

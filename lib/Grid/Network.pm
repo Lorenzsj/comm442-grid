@@ -3,9 +3,10 @@ package Grid::Network;
 
 #Description: Store user in Database and grant user a session
 
-use lib "/home/stevie/perl5/lib/perl5/";
 use strict;
 use warnings;
+use FindBin;
+use lib "$FindBin::Bin/lib/", "$FindBin::Bin/local/lib/perl5";
 use Grid::Database;
 use CGI;
 use CGI::Session;
