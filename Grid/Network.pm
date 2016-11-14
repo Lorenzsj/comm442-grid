@@ -57,7 +57,7 @@ sub sign_in {
     if ($password =~ Grid::Database::get_password) {
       #$session->param(-name=>'username', -value=>$username);
       #$session->expire('+1h');
-      return "Welcome <b>$username</b>.";
+      return "Welcome, <b>$username</b>.";
     }
     else {
       return "Invalid password.";

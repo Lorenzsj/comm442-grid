@@ -1,4 +1,5 @@
 #!/usr/bin/perl
+#the user requests a session from the network
 
 package Grid::User;
 
